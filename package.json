@@ -1,28 +1,24 @@
 {
-  "name": "glitch-hello-node",
-  "version": "0.0.1",
-  "description": "A simple Node app built on fastify, instantly up and running. Built to be remixed on Glitch.com.",
+  "name": "rcard",
+  "version": "1.0.0",
+  "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "raulrodrigues",
+  "license": "ISC",
   "dependencies": {
-    "fastify": "^3.27.0",
-    "fastify-formbody": "^5.2.0",
-    "fastify-static": "^4.5.0",
-    "handlebars": "^4.7.7",
-    "point-of-view": "^5.0.0"
-  },
-  "engines": {
-    "node": "12.x"
-  },
-  "repository": {
-    "url": "https://glitch.com/edit/#!/glitch-hello-node"
-  },
-  "license": "MIT",
-  "keywords": [
-    "node",
-    "glitch",
-    "express"
-  ]
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "firebase": "^9.6.5",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
+    "path": "^0.12.7"
+  }
 }
