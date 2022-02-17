@@ -20,18 +20,14 @@ router.post(
   })
 );
 
-router.post("/register",  (req, res) {
+router.post("/register", (req, res) => {
   const db = getDatabase();
   const users = ref(db, "users");
   onValue(users, (snapshot) => {
     let allUsers = snapshot.val();
-
     if (allUsers == null) {
       allUsers = [];
     }
-
-    console.log(allUsers);
-
     const user = {
       _id: req.body.username,
       username: req.body.username,
@@ -65,11 +61,9 @@ router.post("/register",  (req, res) {
         soundURL: "",
       }
     };
-
     const checkUnique = () => {
       return allUsers.find((item) => item.username === user.username);
     };
-
     if (allUsers == undefined) {
     } else {
       if (checkUnique())
@@ -77,11 +71,8 @@ router.post("/register",  (req, res) {
           "usuário existente/registrado, volte para a tela de login para entrar"
         );
     }
-
     //Saporra ta quebrada aq kkkj, dps eu mexo
-
     allUsers.push(user);
-
     set(ref(db, "users"), allUsers).then(() => {
       console.log("registrado");
     });
