@@ -20,7 +20,7 @@ router.post(
   })
 );
 
-router.post("/register", function (req, res) {
+router.post("/register",  (req, res) {
   const db = getDatabase();
   const users = ref(db, "users");
   onValue(users, (snapshot) => {

@@ -1,24 +1,17 @@
 const express = require("express"),
   router = express.Router();
-
 const { getDatabase, ref, set, update, onValue } = require("firebase/database");
 
-router.get("/", function (req, res, next) {
+router.get("/", (req, res, next) => {
   res.render("cardEdit", { user: req.user });
 });
 
-router.post("/", function (req, res, next) {
-  console.log(req.body);
-
+router.post("/", (req, res, next) => {
   const db = getDatabase();
   const users = ref(db, "users");
   onValue(users, (snapshot) => {
     let allUsers = snapshot.val();
-
     const objIndex = allUsers.findIndex((obj) => obj._id == req.body.meId);
-
-    console.log("Antes: ", allUsers[objIndex]);
-
     allUsers[objIndex] = {
       _id: req.body.meId,
       username: req.body.meId,
@@ -52,22 +45,13 @@ router.post("/", function (req, res, next) {
         soundURL: req.body.lS,
       },
     };
-
-    console.log("Depois: ", allUsers[objIndex]);
-
-    //set individual feito V
-
-    //------
-
-    //Agora falta fzr set no database 
-
     try {
       update(ref(db, "users/" + objIndex), allUsers[objIndex]).then(() => {
         console.log("registrado");
-        res.write("Usuario Atualizado.")
-        return res.send()
+        res.write("Usuario Atualizado.");
+        return res.send();
       });
-    } catch (e) {
+    } catch (err) {
       console.log(err);
       res.sendStatus(500);
       return;
