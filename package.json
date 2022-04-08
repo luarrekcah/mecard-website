@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js" 
+    "start": "node server.js"
   },
   "author": "raulrodrigues",
   "license": "ISC",
@@ -13,9 +13,9 @@
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "ejs": "^3.1.6",
-    "express": "^4.17.2",
+    "express": "^4.17.3",
     "express-session": "^1.17.2",
-    "firebase": "^9.6.5",
+    "firebase": "^9.6.10",
     "http-errors": "^2.0.0",
     "morgan": "^1.10.0",
     "passport": "^0.5.2",
