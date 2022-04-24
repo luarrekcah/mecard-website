@@ -11,27 +11,7 @@ module.exports = (passport) => {
   onValue(users, (snapshot) => {
     const users = snapshot.val();
 
-    const findUser = (username) => {
-      return users.find((item) => item.username === username);
-    };
-
-    const findUserById = (id) => {
-      return users.find((item) => item._id === id);
-    };
-
-    passport.serializeUser((user, done) => {
-      done(null, user._id);
-    });
-
-    passport.deserializeUser((id, done) => {
-      try {
-        const user = findUserById(id);
-        done(null, user);
-      } catch (err) {
-        console.log(err);
-        return done(err, null);
-      }
-    });
+    v
 
     passport.use(
       new localStrategy(
